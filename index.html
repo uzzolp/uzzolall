@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://drive.google.com/uc?id=19zF7Lp7MqgDrp9r0G7yZ6aZnGZ6KDHVj">
+<title>Join my profile</title>
+</head>
+
+<body>
+	<p id="countdown"></p>
+
+ <script>
+   var countdownEl = document.getElementById('countdown');
+  var countdownTime = 2;
+  countdownEl.innerHTML = countdownTime;
+
+  var countdownInterval = setInterval(function() {
+    countdownTime--;
+    countdownEl.innerHTML = countdownTime;
+    if (countdownTime == 0) {
+      clearInterval(countdownInterval);
+      myFunction();
+    }
+  }, 1000);
+	  
+    function myFunction() {
+      var app = "vnd.youtube://youtube.com/redirect?event=comments&redir_token=QUFFLUhqbkJjR1hlUFB0Q0V0ajdUa3pwTEZ1b2h2U0Nad3xBQ3Jtc0tuTUhYdWgtR0duYTk2dWY3Ti1DdFJXUmw2VkxhLXJtNDBjZHFtTnF2Z05wdkc1c3kwU1d0Q2lPN0x3bHJ1UUpiUXpHU3M0QjBIM2dSYldjdkhsWlBlc0FoYThySWs2NDMxVnRhSi1BNXM0Sl80c0VMQQ&q=https%3A%2F%2Fbotton.onrender.com%2F&html_redirect=1";
+	
+      if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        window.location.href = app;
+        window.setTimeout(function() {
+          window.location.href = mobileFallback;
+        }, 25);
+      } else {
+        window.location.href = desktopFallback;
+      }
+	  
+	   function killPopup() {
+        window.removeEventListener('pagehide', killPopup);
+    }
+
+    window.addEventListener('pagehide', killPopup);
+    }
+
+</script>
+</body>
+</html>
